@@ -18,14 +18,14 @@ public class databaseConnection {
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
-    public static Connection getConnection() throws SQLException {
-        Connection connection = null;
+    private static Connection connection;
+
+    public static void connect() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Koneksi berhasil ke database!");
+            System.out.println("Koneksi berhasil!");
         } catch (SQLException e) {
             System.err.println("Koneksi gagal: " + e.getMessage());
         }
-        return connection;
     }
 }
