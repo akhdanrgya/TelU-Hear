@@ -1,4 +1,4 @@
 com\tubespbo\tubes\App.class
 module-info.class
 com\tubespbo\tubes\LoginController.class
-com\tubespbo\tubes\databaseConnection.class
+com\tubespbo\tubes\Database\databaseConnection.class
