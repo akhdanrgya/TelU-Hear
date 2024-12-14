@@ -2,24 +2,28 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubespbo.tubes.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #503C9D;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubespbo.tubes.LoginController">
     <stylesheets>
         <URL value="@/styles/login.css" />
     </stylesheets>
    <children>
-      <Text fill="RED" layoutX="147.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TelU Hear" textAlignment="CENTER" wrappingWidth="306.09765625">
+      <Text fill="WHITE" layoutX="177.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TelU Hear" textAlignment="CENTER" wrappingWidth="250.09765625">
          <font>
-            <Font name="Poppins Bold" size="44.0" />
+            <Font name="Poppins Bold" size="24.0" />
          </font>
       </Text>
-      <Button layoutX="274.0" layoutY="239.0" mnemonicParsing="false" onAction="hallo" text="Halloo" textAlignment="CENTER">
+      <Button fx:id="loginButton" layoutX="278.0" layoutY="249.0" mnemonicParsing="false" onAction="#Login" text="Login" textAlignment="CENTER">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </Button>
+      <TextField fx:id="usernameF" layoutX="228.0" layoutY="175.0" promptText="Username" />
+      <PasswordField fx:id="passwordF" layoutX="228.0" layoutY="209.0" promptText="Password" />
    </children>
 </AnchorPane>

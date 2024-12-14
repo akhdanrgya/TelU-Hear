@@ -24,8 +24,8 @@ public class LoginController implements Initializable {
         
     }
     
-    public void hallo(){
-        System.out.println("Hallooooo");
+    public void Login() {
+        System.out.println("Logiiinnn");
     }
     
 }
