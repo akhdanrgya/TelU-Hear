@@ -9,7 +9,7 @@ public class UserDAO {
     private Connection connection;
 
     public UserDAO() {
-        databaseConnection.connect(); // connect ke database
+        databaseConnection.connect();
         this.connection = databaseConnection.getConnection();
     }
 
@@ -20,7 +20,7 @@ public class UserDAO {
             stmt.setString(2, password);
             ResultSet resultSet = stmt.executeQuery();
 
-            return resultSet.next(); // true kalau user ada di database
+            return resultSet.next();
         } catch (SQLException e) {
             System.err.println("Error saat validasi user: " + e.getMessage());
             return false;

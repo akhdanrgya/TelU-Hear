@@ -31,7 +31,7 @@ public class LoginController {
             boolean isValid = userDAO.validateUser(username, password);
             if (isValid) {
                 showAlert("Login Berhasil! Selamat datang, " + username + "!");
-                goToHome(); // Pindah ke home
+                goToHome();
             } else {
                 showAlert("Login Gagal! Username atau Password salah.");
             }
@@ -48,14 +48,12 @@ public class LoginController {
 
     private void goToHome() {
         try {
-            // Load file home.fxml
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
             Parent root = loader.load();
 
-            // Ambil stage dari scene sekarang
             Stage stage = (Stage) usernameF.getScene().getWindow();
 
-            // Set scene baru
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Home Page");
