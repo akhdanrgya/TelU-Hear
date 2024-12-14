@@ -1,52 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.tubespbo.tubes;
 
-import com.tubespbo.tubes.Database.databaseConnection;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-
+import com.tubespbo.tubes.Database.UserDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
 
-/**
- * FXML Controller class
- *
- * @author akhda
- */
-public class LoginController implements Initializable {
+public class LoginController {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
-    }
-    
     @FXML
     private TextField usernameF, passwordF;
-    
+
+    private UserDAO userDAO;
+
+    public LoginController() {
+        this.userDAO = new UserDAO();
+    }
+
     @FXML
-    private void Login(){
+    private void Login() {
         String username = usernameF.getText();
         String password = passwordF.getText();
-        
-        System.out.println("Username: " + username);
-        System.out.println("Password: " + password);
-        
-        if (username.isEmpty() && password.isEmpty()) {
-            showAlert("Username or Password cannot be empty!");
+
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert("Username dan Password tidak boleh kosong!");
         } else {
-            showAlert("Welcome, " + username + "!");
+            boolean isValid = userDAO.validateUser(username, password);
+            if (isValid) {
+                showAlert("Login Berhasil! Selamat datang, " + username + "!");
+                goToHome(); // Pindah ke home
+            } else {
+                showAlert("Login Gagal! Username atau Password salah.");
+            }
         }
     }
-    
+
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Login Status");
@@ -54,5 +45,23 @@ public class LoginController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
-    
+
+    private void goToHome() {
+        try {
+            // Load file home.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
+            Parent root = loader.load();
+
+            // Ambil stage dari scene sekarang
+            Stage stage = (Stage) usernameF.getScene().getWindow();
+
+            // Set scene baru
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Home Page");
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("Error saat pindah halaman: " + e.getMessage());
+        }
+    }
 }

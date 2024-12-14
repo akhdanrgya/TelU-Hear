@@ -1,4 +1,7 @@
+com\tubespbo\tubes\HomeController.class
+com\tubespbo\tubes\Database\UserDAO.class
 com\tubespbo\tubes\App.class
 module-info.class
+com\tubespbo\tubes\Database\UserModel.class
 com\tubespbo\tubes\LoginController.class
 com\tubespbo\tubes\Database\databaseConnection.class
