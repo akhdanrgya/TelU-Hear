@@ -18,12 +18,17 @@
             <Font name="Poppins Bold" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="loginButton" layoutX="278.0" layoutY="249.0" mnemonicParsing="false" onAction="#Login" text="Login" textAlignment="CENTER">
+      <Button fx:id="loginButton" layoutX="228.0" layoutY="249.0" mnemonicParsing="false" onAction="#Login" text="Login" textAlignment="CENTER">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </Button>
       <TextField fx:id="usernameF" layoutX="228.0" layoutY="175.0" promptText="Username" />
       <PasswordField fx:id="passwordF" layoutX="228.0" layoutY="209.0" promptText="Password" />
+      <Button layoutX="310.0" layoutY="249.0" mnemonicParsing="false" text="Register">
+         <font>
+            <Font name="Poppins Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

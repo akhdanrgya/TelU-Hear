@@ -7,6 +7,9 @@ package com.tubespbo.tubes;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
 /**
  * FXML Controller class
@@ -21,6 +24,16 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    
+    }
+    
+    private TextField searchf;
+    
+    @FXML
+    private void search(){
+        String searchValue = searchf.getText();
+        System.out.println(searchValue);
+    }
+    
     
 }
