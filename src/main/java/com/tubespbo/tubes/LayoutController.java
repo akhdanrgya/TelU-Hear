@@ -44,9 +44,9 @@ public class LayoutController implements Initializable {
             contentArea.getChildren().removeAll();
             contentArea.getChildren().setAll(fxml);
         } catch (IOException ex) {
-            System.out.println("Error Load Page Home: ");
+            System.out.println("Error Load Page Home: " + ex);
         }
-    }   
+    }
     
     public void home(javafx.event.ActionEvent actionEvent) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("home.fxml"));

@@ -4,6 +4,7 @@ module-info.class
 com\tubespbo\tubes\Database\UserModel.class
 com\tubespbo\tubes\MusicController.class
 com\tubespbo\tubes\Database\databaseConnection.class
+com\tubespbo\tubes\Database\SongModel.class
 com\tubespbo\tubes\PremiumController.class
 com\tubespbo\tubes\HomeController.class
 com\tubespbo\tubes\Database\SongDAO.class
