@@ -9,14 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="215.0" prefWidth="211.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.tubespbo.tubes.PlaylistCardController">
+<AnchorPane id="AnchorPane" prefHeight="215.0" prefWidth="211.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubespbo.tubes.PlaylistCardController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="218.0" style="-fx-background-color: #dce6f5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="53.0" prefWidth="225.0" style="-fx-background-radius: 50;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="93.0" prefWidth="239.0" style="-fx-background-color: ffe3e9;" text="Via's playlist" textFill="#a3b9d9">
+                  <Label fx:id="playlistNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="93.0" prefWidth="239.0" style="-fx-background-color: ffe3e9;" text="Via's playlist" textFill="#a3b9d9">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
@@ -26,7 +25,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fitHeight="110.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playlistImage" fitHeight="110.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../image/image1.png" />
                </image>

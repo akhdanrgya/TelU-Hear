@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 
 public class LoginController {
 
@@ -15,6 +16,8 @@ public class LoginController {
     private TextField usernameF, passwordF;
 
     private UserDAO userDAO;
+    
+    private Label usernameLabel;
 
     public LoginController() {
         this.userDAO = new UserDAO();
@@ -31,6 +34,7 @@ public class LoginController {
             boolean isValid = userDAO.validateUser(username, password);
             if (isValid) {
                 showAlert("Login Berhasil! Selamat datang, " + username + "!");
+                usernameLabel.setText(username);
                 goToHome();
             } else {
                 showAlert("Login Gagal! Username atau Password salah.");

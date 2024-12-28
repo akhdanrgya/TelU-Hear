@@ -18,6 +18,14 @@
                   <Font name="Poppins Bold" size="18.0" />
                </font>
                <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="usernameLabel" style="-fx-text-fill: #86B6FF;" text="username" textAlignment="CENTER" textFill="#ede7ff">
+               <font>
+                  <Font name="Poppins Regular" size="10.0" />
+               </font>
+               <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Label>
