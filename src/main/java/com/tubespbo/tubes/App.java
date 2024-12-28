@@ -1,8 +1,5 @@
 package com.tubespbo.tubes;
 
-import com.tubespbo.tubes.Database.SongDAO;
-import com.tubespbo.tubes.Database.SongModel;
-import com.tubespbo.tubes.Database.databaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,15 +21,6 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"), 640, 480);
         stage.setScene(scene);
         stage.show();
-                databaseConnection.connect();
-        
-        SongDAO songDAO= new SongDAO(databaseConnection.getConnection());
-        
-        List<SongModel> songs = songDAO.getAllSongs();
-        
-        for(SongModel song : songs){
-            System.out.println(song.getJudul());
-        }  
     }
 
     static void setRoot(String fxml) throws IOException {
