@@ -1,26 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.tubespbo.tubes;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import com.tubespbo.tubes.Database.PlaylistModel;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-/**
- * FXML Controller class
- *
- * @author akhda
- */
-public class PlaylistCardController implements Initializable {
+public class PlaylistCardController {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    @FXML
+    private Label playlistNameLabel;
+
+    @FXML
+    private ImageView playlistImage;
+
+    private PlaylistModel playlist;
+
+    public void setPlaylistData(PlaylistModel playlist) {
+        this.playlist = playlist;
+        playlistNameLabel.setText(playlist.getPlaylist_name());
+
+        // Pastikan gambar ditemukan dan valid
+        String imagePath = playlist.getImage();
+        if (imagePath != null && !imagePath.isEmpty()) {
+            try {
+                Image image = new Image(getClass().getResourceAsStream(imagePath));
+                playlistImage.setImage(image);
+            } catch (Exception e) {
+                // Jika gambar tidak ditemukan, set gambar default
+                playlistImage.setImage(new Image(getClass().getResourceAsStream("/com/tubespbo/tubes/default-image.png")));
+            }
+        } else {
+            // Set gambar default jika path kosong atau null
+            playlistImage.setImage(new Image(getClass().getResourceAsStream("/com/tubespbo/tubes/default-image.png")));
+        }
+    }
 }

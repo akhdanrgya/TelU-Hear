@@ -15,12 +15,18 @@ public class LoginController {
     @FXML
     private TextField usernameF, passwordF;
 
-    private UserDAO userDAO;
-    
+    @FXML
     private Label usernameLabel;
+
+    private UserDAO userDAO;
 
     public LoginController() {
         this.userDAO = new UserDAO();
+    }
+
+    @FXML
+    private void initialize() {
+
     }
 
     @FXML
@@ -34,7 +40,7 @@ public class LoginController {
             boolean isValid = userDAO.validateUser(username, password);
             if (isValid) {
                 showAlert("Login Berhasil! Selamat datang, " + username + "!");
-                usernameLabel.setText(username);
+//                usernameLabel.setText(username);
                 goToHome();
             } else {
                 showAlert("Login Gagal! Username atau Password salah.");

@@ -1,32 +1,61 @@
 package com.tubespbo.tubes;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.ImageView;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.AnchorPane;
+import com.tubespbo.tubes.Database.PlaylistDAO;
+import com.tubespbo.tubes.Database.PlaylistModel;
 
-public class HomeController {
-    
-    
-    @FXML
-    private ImageView playlistImage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 
-    @FXML
-    private Label playlistNameLabel;
-    
+public class HomeController implements Initializable {
+
     @FXML
     private GridPane grid;
 
-    @FXML
-    private ScrollPane scroll;
-    
-    @FXML
-    private void initialize() {
-        
+    private PlaylistDAO playlistDAO;
+
+    public HomeController() {
+        this.playlistDAO = new PlaylistDAO();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        loadPlaylists();
+        System.out.println("init home");
+    }
+
+    private void loadPlaylists() {
+        List<PlaylistModel> playlists = playlistDAO.getAllPlaylists();
+        int column = 0;
+        int row = 0;
+
+        System.out.println("Jumlah playlist di controller: " + playlists.size());
+
+        try {
+            for (PlaylistModel playlist : playlists) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/tubespbo/tubes/playlistCard.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                PlaylistCardController playlistController = fxmlLoader.getController();
+                playlistController.setPlaylistData(playlist);
+
+                grid.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(10));
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
-
-
-
-

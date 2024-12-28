@@ -53,6 +53,7 @@ public class PlaylistDAO {
         return playlists;
     }
 
+
     public boolean updatePlaylistName(int id, String newName) {
         String query = "UPDATE playlist SET playlist_name = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -75,5 +76,4 @@ public class PlaylistDAO {
             return false;
         }
     }
-    
 }
