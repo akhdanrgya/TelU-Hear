@@ -20,6 +20,8 @@ public class HomeController implements Initializable {
     private GridPane grid;
 
     private PlaylistDAO playlistDAO;
+    
+    private AnchorPane playlistAnchor;
 
     public HomeController() {
         this.playlistDAO = new PlaylistDAO();
@@ -39,12 +41,12 @@ public class HomeController implements Initializable {
         System.out.println("Jumlah playlist di controller: " + playlists.size());
 
         try {
-            for (PlaylistModel playlist : playlists) {
+            for (int i = 0 ; i < playlists.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/tubespbo/tubes/playlistCard.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 PlaylistCardController playlistController = fxmlLoader.getController();
-                playlistController.setPlaylistData(playlist);
+                playlistController.setPlaylistData(playlists.get(i));
 
                 grid.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(10));
