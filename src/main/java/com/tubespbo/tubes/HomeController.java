@@ -1,39 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.tubespbo.tubes;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 
-/**
- * FXML Controller class
- *
- * @author akhda
- */
-public class HomeController implements Initializable {
+import java.io.IOException;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    
-    }
-    
-    private TextField searchf;
-    
+public class HomeController {
     @FXML
-    private void search(){
-        String searchValue = searchf.getText();
-        System.out.println(searchValue);
+    private BorderPane contentPane; // pastikan ini sesuai dengan fx:id di fxml
+    @FXML
+    private Button homeButton;
+    @FXML
+    private Button musicButton;
+    @FXML
+    private Button playlistButton;
+    @FXML
+    private Button premiumButton;
+
+    @FXML
+    private void initialize() {
+        // tambahkan event handler ke tombol-tombol
+        homeButton.setOnAction(event -> loadPage("home.fxml"));
+        musicButton.setOnAction(event -> loadPage("music.fxml"));
+        playlistButton.setOnAction(event -> loadPage("playlist.fxml"));
+        premiumButton.setOnAction(event -> loadPage("premium.fxml"));
     }
-    
-    
+
+    private void loadPage(String fxmlFile) {
+        try {
+            // load fxml dan set ke center pane
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Node node = loader.load();
+            contentPane.setCenter(node);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
+

@@ -27,21 +27,20 @@ public class UserDAO {
         }
     }
     
-public void register(String username, String password, int role) {
-    String query = "INSERT INTO `users` (`username`, `password`, `role`) VALUES (?, ?, ?)";
-    try (PreparedStatement stmt = connection.prepareStatement(query)) {
-        stmt.setString(1, username);
-        stmt.setString(2, password);
-        stmt.setInt(3, role);
-        int rowsInserted = stmt.executeUpdate();
-        if (rowsInserted > 0) {
-            System.out.println("Akun berhasil dibuat!");
-        } else {
-            System.out.println("Gagal membuat akun!");
+    public void register(String username, String password) {
+        String query = "INSERT INTO `users` (`username`, `password`, `role`) VALUES (?, ?, '0')";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            int rowsInserted = stmt.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Akun berhasil dibuat!");
+            } else {
+                System.out.println("Gagal membuat akun!");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error saat membuat akun: " + e.getMessage());
         }
-    } catch (SQLException e) {
-        System.out.println("Error saat membuat akun: " + e.getMessage());
     }
-}
 
 }
