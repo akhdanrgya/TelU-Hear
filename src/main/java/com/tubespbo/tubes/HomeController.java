@@ -10,8 +10,6 @@ import java.io.IOException;
 import javafx.scene.Parent;
 
 public class HomeController {
-    @FXML
-    private BorderPane contentArea;
 
     @FXML
     private void initialize() {
