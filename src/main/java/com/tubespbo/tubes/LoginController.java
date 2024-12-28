@@ -49,7 +49,7 @@ public class LoginController {
     private void goToHome() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("layout.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) usernameF.getScene().getWindow();
