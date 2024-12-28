@@ -8,16 +8,18 @@ public class PlaylistModel {
     private int id;
     private int id_user;
     private String playlist_name;
+    private String image;
 
     // Constructor default
     public PlaylistModel() {
     }
 
     // Constructor dengan parameter
-    public PlaylistModel(int id, int id_user, String playlist_name) {
+    public PlaylistModel(int id, int id_user, String playlist_name, String image) {
         this.id = id;
         this.id_user = id_user;
         this.playlist_name = playlist_name;
+        this.image = image;
     }
 
     // Getter dan Setter untuk id
@@ -45,6 +47,14 @@ public class PlaylistModel {
 
     public void setPlaylist_name(String playlist_name) {
         this.playlist_name = playlist_name;
+    }
+    
+    public String getImage(){
+        return image;
+    }
+    
+    public void setImage(String image){
+        this.image = image;
     }
 
     // Method toString untuk debugging

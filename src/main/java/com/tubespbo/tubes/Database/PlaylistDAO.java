@@ -19,20 +19,19 @@ public class PlaylistDAO {
         this.connection = databaseConnection.getConnection();
     }
 
-    // CREATE - Tambah playlist baru
     public boolean addPlaylist(PlaylistModel playlist) {
-        String query = "INSERT INTO playlist (id_user, playlist_name) VALUES (?, ?)";
+        String query = "INSERT INTO playlist (id_user, playlist_name, image) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, playlist.getId_user());
             stmt.setString(2, playlist.getPlaylist_name());
-            return stmt.executeUpdate() > 0; // return true jika berhasil
+            stmt.setString(3, playlist.getImage());
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error saat menambah playlist: " + e.getMessage());
             return false;
         }
     }
 
-    // READ - Ambil semua playlist
     public List<PlaylistModel> getAllPlaylists() {
         List<PlaylistModel> playlists = new ArrayList<>();
         String query = "SELECT * FROM playlist";
@@ -43,7 +42,8 @@ public class PlaylistDAO {
                 PlaylistModel playlist = new PlaylistModel(
                         rs.getInt("id"),
                         rs.getInt("id_user"),
-                        rs.getString("playlist_name")
+                        rs.getString("playlist_name"),
+                        rs.getString("image")
                 );
                 playlists.add(playlist);
             }
@@ -53,25 +53,23 @@ public class PlaylistDAO {
         return playlists;
     }
 
-    // UPDATE - Ubah nama playlist
     public boolean updatePlaylistName(int id, String newName) {
         String query = "UPDATE playlist SET playlist_name = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, newName);
             stmt.setInt(2, id);
-            return stmt.executeUpdate() > 0; // return true jika berhasil
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error saat mengupdate playlist: " + e.getMessage());
             return false;
         }
     }
 
-    // DELETE - Hapus playlist berdasarkan id
     public boolean deletePlaylist(int id) {
         String query = "DELETE FROM playlist WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, id);
-            return stmt.executeUpdate() > 0; // return true jika berhasil
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error saat menghapus playlist: " + e.getMessage());
             return false;

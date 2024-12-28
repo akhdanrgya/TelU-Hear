@@ -55,7 +55,7 @@ public class LoginController {
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Home Page");
+            stage.setTitle("TelU Hear");
             stage.show();
         } catch (Exception e) {
             System.err.println("Error saat pindah halaman: " + e.getMessage());

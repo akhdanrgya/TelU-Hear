@@ -15,14 +15,14 @@ import java.util.List;
 public class MusicController {
     @FXML
     public void initialize() {
-
+        
     }
     
     public static List<SongModel> fetchSongTitles() {
         databaseConnection.connect();
-
+        
         SongDAO songDAO = new SongDAO(databaseConnection.getConnection());
-
+        
         return songDAO.getAllSongs();
     }
 }
