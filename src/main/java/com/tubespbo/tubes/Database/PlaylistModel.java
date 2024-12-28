@@ -49,6 +49,7 @@ public class PlaylistModel {
         this.playlist_name = playlist_name;
     }
     
+    // Getter dan Setter untuk image
     public String getImage(){
         return image;
     }

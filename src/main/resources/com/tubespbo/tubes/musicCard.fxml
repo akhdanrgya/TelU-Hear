@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="50.0" prefWidth="550.0" style="-fx-background-color: clear; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubespbo.tubes.MusicCardController">
+   <children>
+      <HBox layoutY="6.0" prefHeight="53.0" prefWidth="550.0" style="-fx-background-color: ffe3e9; -fx-background-radius: 50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="1" textFill="#a3b9d9">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Times New Roman Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Arvia Anak Madd" textFill="#a3b9d9">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="15.0" left="30.0" top="15.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="Amin Paling Serius" textFill="#a3b9d9">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="15.0" left="50.0" top="15.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

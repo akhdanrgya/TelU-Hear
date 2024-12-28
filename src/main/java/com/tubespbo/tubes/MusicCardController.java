@@ -13,12 +13,11 @@ import javafx.fxml.Initializable;
  *
  * @author akhda
  */
-public class PremiumController implements Initializable {
+public class MusicCardController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
