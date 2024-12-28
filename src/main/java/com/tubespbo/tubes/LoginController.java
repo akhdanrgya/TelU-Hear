@@ -48,8 +48,7 @@ public class LoginController {
 
     private void goToHome() {
         try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("layout.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tubespbo/tubes/layout.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) usernameF.getScene().getWindow();
