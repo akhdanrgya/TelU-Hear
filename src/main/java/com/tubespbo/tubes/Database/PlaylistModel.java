@@ -4,6 +4,7 @@ package com.tubespbo.tubes.Database;
  *
  * @author akhda
  */
+
 public class PlaylistModel {
     private int id;
     private int id_user;
@@ -53,7 +54,7 @@ public class PlaylistModel {
     public String getImage(){
         return image;
     }
-    
+
     public void setImage(String image){
         this.image = image;
     }

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.layout.Pane;
 
 public class HomeController implements Initializable {
 
@@ -20,8 +21,6 @@ public class HomeController implements Initializable {
     private GridPane grid;
 
     private PlaylistDAO playlistDAO;
-    
-    private AnchorPane playlistAnchor;
 
     public HomeController() {
         this.playlistDAO = new PlaylistDAO();
@@ -43,10 +42,11 @@ public class HomeController implements Initializable {
         try {
             for (int i = 0 ; i < playlists.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/tubespbo/tubes/playlistCard.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
+                Pane anchorPane = fxmlLoader.load();
 
                 PlaylistCardController playlistController = fxmlLoader.getController();
                 playlistController.setPlaylistData(playlists.get(i));
+                System.out.println(playlists.get(i));
 
                 grid.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(10));
@@ -55,6 +55,7 @@ public class HomeController implements Initializable {
                     column = 0;
                     row++;
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();

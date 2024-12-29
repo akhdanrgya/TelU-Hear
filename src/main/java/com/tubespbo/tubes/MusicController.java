@@ -11,8 +11,10 @@ import com.tubespbo.tubes.Database.databaseConnection;
 
 
 import java.util.List;
+import javafx.scene.control.Label;
 
 public class MusicController {
+    
     @FXML
     public void initialize() {
         
